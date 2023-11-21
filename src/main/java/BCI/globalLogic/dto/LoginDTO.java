@@ -6,6 +6,6 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 public class LoginDTO {
-    @NotEmpty(message = "El token no puede estar vacio.")
+    @NotEmpty(message = "The token cannot be empty.")
     private String token;
 }

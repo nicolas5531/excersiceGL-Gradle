@@ -22,19 +22,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(ex, HttpStatus.BAD_REQUEST);
     }
 
-    /*@Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException exception,
-                                                                  HttpHeaders headers, HttpStatus status, WebRequest request) {
-        ExceptionDTO ex = new ExceptionDTO(Collections.singletonList(
-                new java.lang.Error(400, exception.getAllErrors().stream()
-                        .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                        .collect(Collectors.joining())
-                )
-        ));
-
-        return new ResponseEntity<>(ex, HttpStatus.BAD_REQUEST);
-    }*/
-
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException exception,
                                                                   HttpHeaders headers, HttpStatus status, WebRequest request) {
@@ -42,11 +29,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 Collections.singletonList(new Error(400, exception.getAllErrors().stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.joining())
-                /*List.of(new Error(400, exception.getAllErrors().stream()
-                .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                .collect(Collectors.joining())*/
         )));
         return new ResponseEntity<>(ex, HttpStatus.BAD_REQUEST);
     }
 }
-// ctrl + p dentro del metodo te indica que parametros acepta
